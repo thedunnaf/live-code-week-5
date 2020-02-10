@@ -1,145 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Comic Agung</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <div class="container" id="app">
-      <!-- Logout button and notification for success / error event -->
-      <div class="row my-3">
-        <button id="btn-logout" class="btn btn-primary ml-auto">Logout</button>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Comic Agung</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
 
-      <div id="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
-        Your notification goes here
-      </div>
-
-      <!-- This is Login Form  -->
-      <div>
-        <h1>Login</h1>
-        <form class="my-4">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
-          <button type="submit" class="btn btn-info">
-            Register
-          </button>
-        </form>
-      </div>
-
-      <div>
-        <h1>Register</h1>
-        <form class="my-4">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input
-              type="name"
-              class="form-control"
-              name="name"
-              id="name"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
-          <button type="submit" class="btn btn-warning">
-            Random User
-          </button>
-          <button type="submit" class="btn btn-info">
-            Login
-          </button>
-        </form>
-      <ist -->
-      <div>
-        <h1>Comic Collection</h1>
-        <div class="row my-4">
-          <!-- Each of comic will have one of this card -->
-          <div class="col-4 mb-4">
-            <div class="card text-center">
-              <img
-                src="https://www.idwpublishing.com/wp-content/uploads/2018/10/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yNDAvNzQ0L29yaWdpbmFsL1NwaWRlcm1hbjAxX2N2ckEuanBn.jpeg"
-                class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">The Amazing Spiderman - new Avengers</h5>
-                <p class="card-text">Author: J Michael S</p>
-                <button class="btn btn-primary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <!-- This is form page to update a comic -->
-      <div>
-        <h1>Update Comic</h1>
-        <form class="my-4">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input id="title" type="text" class="form-control" name="title" />
-          </div>
-          <div class="form-group">
-            <label for="author">Author</label>
-            <input type="text" class="form-control" name="author" />
-          </div>
-          <div class="form-group">
-            <label for="imageUrl">Comic Image URL</label>
-            <input type="text" class="form-control" name="imageUrl" />
-          </div>
-          <button id="btn-update" type="submit" class="btn btn-primary">
-            Submit
-          </button>
-        </form>
-      </di>
+<body>
+  <div class="container" id="app">
+    <!-- Logout button and notification for success / error event -->
+    <div class="row my-3" id="logout">
+      <button id="btn-logout" class="btn btn-primary ml-auto">Logout</button>
     </div>
-  </body>
+
+    <div id="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+      Your notification goes here
+    </div>
+
+    <!-- This is Login Form  -->
+    <div id="login">
+      <h1>Login</h1>
+      <form class="my-4" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="emailLogin" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="passwordLogin" required />
+        </div>
+        <button type="submit" id="submitLogin" class="btn btn-primary">
+          Submit
+        </button>
+        <button type="button" class="btn btn-info" id="registerButton">
+          Register
+        </button>
+      </form>
+    </div>
+
+    <div id="register" style="display: none;">
+      <h1>Register</h1>
+      <form class="my-4">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" class="form-control" name="name" id="nameRegister" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="emailRegister" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="passwordRegister" required />
+        </div>
+        <button type="submit" class="btn btn-primary" id="registerSubmit">
+          Submit
+        </button>
+        <button type="button" class="btn btn-warning">
+          Random User
+        </button>
+        <button type="button" class="btn btn-info" id="loginButton">
+          Login
+        </button>
+      </form>
+    </div>
+    <div id="list">
+      <h1>Comic Collection</h1>
+      <div class="row my-4" id="data">
+        <!-- Each of comic will have one of this card -->
+      </div>
+    </div>
+
+    <!-- This is form page to update a comic -->
+    <div id="update" style="display: none;">
+      <h1>Update Comic</h1>
+      <form class="my-4">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input id="title" type="text" class="form-control" name="title" />
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" class="form-control" name="author" />
+        </div>
+        <div class="form-group">
+          <label for="imageUrl">Comic Image URL</label>
+          <input type="text" class="form-control" name="imageUrl" />
+        </div>
+        <button id="btn-update" type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+  const baseURL = "http://localhost:3000";
+  $("#logout").css("display", "none");
+  $("#alert").css("display", "none");
+  $("#register").css("display", "none");
+  $("#update").css("display", "none");
+  $("#update").css("display", "none");
+  $("#list").css("display", "none");
+
+  $("#submitLogin").on("click", function (e) {
+    e.preventDefault();
+    const email = $("#emailLogin").val();
+    const password = $("#passwordLogin").val();
+    $.ajax({
+      method: "POST",
+      url: `${baseURL}/login`,
+      data: {
+        email: email,
+        password: password
+      }
+    })
+      .done(data => {
+        localStorage.setItem("token", data.token);
+        $("#login").css("display", "none");
+        $("#update").css("display", "block");
+        $("#list").css("display", "block");
+        $("#logout").css("display", "block");
+      })
+      .fail(err => {
+        $("#alert").css("display", "block");
+        $("#alert").html(err.responseText);
+      })
+  });
+  $("#submitRegister").on("click", function (e) {
+    e.preventDefault();
+    const name = $("#nameRegister").val();
+    const email = $("#emailRegister").val();
+    const password = $("#passwordRegister").val();
+    register(name, email, password);
+  });
+  $("#registerButton").on("click", function (e) {
+    $("#register").css("display", "block");
+    $("#login").css("display", "none");
+  });
+  $("#loginButton").on("click", function (e) {
+    $("#register").css("display", "none");
+    $("#login").css("display", "block");
+  });
+  function login(email, password) {
+
+  }
+  function register(name, email, password) {
+    $.ajax({
+      method: "POST",
+      url: `${baseURL}/register`,
+      data: {
+        name: name,
+        email: email,
+        password: password
+      }
+    })
+      .done(data => {
+        $("#login").css("display", "none");
+        $("#list").css("display", "block");
+        $("#logout").css("display", "block");
+      })
+      .fail(err => {
+        $("#alert").css("display", "block");
+        $("#alert").html(err.responseText);
+      });
+  }
+
+  function check() {
+    if (localStorage.token) {
+      const token = localStorage.token;
+      $.ajax({
+        method: "GET",
+        url: `${baseURL}/comics`,
+        headers: { token: token }
+      })
+        .done(data => {
+          data.forEach(el => {
+            $("#data").append(`
+                        <div class="col-4 mb-4">
+                            <div class="card text-center">
+                            <img
+                                src="${el.imageUrl}"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">${el.title}</h5>
+                                <p class="card-text">${el.author}</p>
+                                <button class="btn btn-primary" onclick="findOne(${id})">Edit</button>
+                            </div>
+                            </div>
+                        </div>
+                        `)
+          });
+        })
+        .fail(err => {
+          $("#alert").css("display", "block");
+          $("#alert").html(err.responseText);
+        });
+
+    }
+  }
+  check();
+  function findOne(id) {
+    $.ajax({
+      method: "GET",
+      url: `${baseURL}/${id}`,
+      headers: { token: token }
+    })
+      .done(data => {
+        $("#update").css("display", "block")
+        $("#title").val(`${data.title}`)
+        $("#author").val(`${data.author}`)
+        $("#imageUrl").val(`${data.imageUrl}`)
+      })
+      .fail(err => {
+        $("#alert").css("display", "block");
+        $("#alert").html(err.responseText);
+      });;
+  };
+
+</script>
+
 </html>
